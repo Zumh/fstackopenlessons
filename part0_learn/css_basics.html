@@ -5,11 +5,63 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>My test page</title>
-    <!--<link href="styles/style.css" rel="stylesheet"/>-->
     <link 
     href="https://fonts.googleapis.com/css?family=Open+Sans" 
     rel="stylesheet"
     />
+    <!--<link href="styles/style.css" rel="stylesheet"/>-->
+    
+    <!-- This is inline css style that we borrow from google font style -->
+    <style>
+            html {
+            font-size: 10px; /* px means "pixels": the base font size is now 10 pixels high */
+            font-family: "Open Sans", sans-serif; /* this should be the rest of the output you got form Google fonts */
+            background-color:  #00539f;
+            color: lightgreen;
+        }
+        h2 {
+            /*gap between body and top*/
+            margin: 0;
+            /*top and bottom padding 20 px*/
+            padding: 20px 0;
+            
+            color: yellow;
+            font-size: 16px;
+            
+            text-align: center;
+            /*horizontal offset, vertical offset, blur radius, base color*/
+            text-shadow: 3px 3px 1px green;
+
+        }
+
+        /*image is inline element can be considered as blocks just like body*/
+        /*so it's margin is depends on body element dimension. img size must be smaller than body*/
+        img {
+            display: block;
+            margin: 0 auto;
+        }
+        
+        p, li {
+            font-size: 16px;
+            line-height: 2;
+            letter-spacing: 1px;
+            
+        }
+        body {
+            /*600 px wide*/
+            width: 600px;
+            /*top and bottom left and right*/
+            margin: 0 auto;
+            /*background color of the body*/
+            background-color: black;
+            /*20px top, right, and bottom, left*/
+            padding: 0 20px 20px 20px;
+            /*border width style color */
+            border: 5px solid lightgreen;
+
+        }
+    </style>
+   
   </head>
   <body>
     <p>Hello world this is a paragraph</p>
@@ -42,10 +94,33 @@
     <h2>Different types of selectors</h2>
     <uli>
         <li>Element selector - p or paragraph selection</li>
-        <li>ID selector - #my-id selects id="my-id" any element or paragraph element id</li>
+        <li>ID selector - must be unique #my-id selects id="my-id" any element or paragraph element id</li>
         <li>Class selector - .my-class selects class="my-class" p or paragraph element</li>
         <li>Attribute selector - img[src] selects src="myimage.png" from img element</li>
         <li>Pseudo-class selector - a:hover select a, only when the mouse hovering over the link.</li>
     </uli>
+    <h2>Fonts and text</h2>
+    <uli>
+        <li>
+            we can use https://fonts.googleapis.com/css?family=Open+Sans
+        </li>
+        <li>
+            we can change the fonts using google font family like html selector
+        </li>
+    </uli>
+    <h2>Boxes</h2>
+    <uli>
+        <li>padding, the space around the content. In the example below, it is the space around the paragraph text.</li>
+        <li>border, the solid line that is just outside the padding.</li>
+        <li>margin, the space around the outside of the border.</li>
+        <li>width (of an element).</li>
+        <li>background-color, the color behind an element's content and padding.</li>
+        <li>color, the color of an element's content (usually text).</li>
+        <li>text-shadow sets a drop shadow on the text inside an element.</li>
+        <li>display sets the display mode of an element. (keep reading to learn more)</li>
+        <li>continue, let's add more CSS. Keep adding these new rules at the bottom of style.</li>
+    </uli>
+
+
   </body>
 </html>
