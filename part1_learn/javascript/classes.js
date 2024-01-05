@@ -1,3 +1,4 @@
+// js class is a simulation of class from ES6
 class Person {
 
 
