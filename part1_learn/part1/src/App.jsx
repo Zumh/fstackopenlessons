@@ -2,63 +2,82 @@
 // file imports the useState function
 import { useState } from "react";
 
-// The component only uses the counter field of its props.
 /*
-const Display = ({counter}) => {
-    return (
-      <div>{counter}</div>
-    )
-  }
-*/
-
-  // we can simplify further 
-  const Display = ({ counter }) => <div>{counter}</div>
-
-  /*
-  const Button = ({onClick, text}) => {
-    return (
-      <button onClick={onClick}>
-        {text}
-      </button>
-    )
-  }
-*/
-
-  // furthur simplification of a button
-  // don't over simplify because of future code maintnance
-  const Button = ({onClick, text}) => <button onClick={onClick}>{text}</button>
-
-  const App = () => {
-    // useSstate hook create aopplication state, init counter to 0
-    const [counter, setCounter] = useState(0)
+// complex state
+const App = () => {
+    const [left, setLeft] = useState(0)
+    const [right, setRight] = useState(0)
   
-  
-    const increaseByOne = () => {
-  
-      setCounter(counter + 1)
-    }
-  
-    const decreaseByOne = () => { 
-  
-      setCounter(counter - 1)
-    }
-  
-    const setToZero = () => {
-  
-      setCounter(0)
-    }
-    // Display component is render intialy with value of zero
-    // onClick event trigger event handler that sets counter to 0 in the state
-    // which trigger re-rendering of App component again with value of updated number.
-    // Then button component recieve another event handlers to change the state of the counter.
     return (
       <div>
-        <Display counter={counter} />
-        <Button onClick={increaseByOne} text="plus" />
-        <Button onClick={setToZero} text="zero" />
-        <Button onClick={decreaseByOne} text="minus" />
+        {left}
+        <button onClick={() => setLeft(left + 1)}>
+          left
+        </button>
+        <button onClick={() => setRight(right + 1)}>
+          right
+        </button>
+        {right}
       </div>
     )
-  } 
+  }*/
 
+  // using object state
+  /*
+  const App = () => {
+    const [clicks, setClicks] = useState({
+      left: 0, right: 0
+    })
+  
+    const handleLeftClick = () => {
+      const newClicks = { 
+        left: clicks.left + 1, 
+        right: clicks.right 
+      }
+      setClicks(newClicks)
+    }
+  
+    const handleRightClick = () => {
+      const newClicks = { 
+        left: clicks.left, 
+        right: clicks.right + 1 
+      }
+      setClicks(newClicks)
+    }
+  
+    return (
+      <div>
+        {clicks.left}
+        <button onClick={handleLeftClick}>left</button>
+        <button onClick={handleRightClick}>right</button>
+        {clicks.right}
+      </div>
+    )
+  }
+*/
+  // simplifying App component
+  const App = () => {
+    const [clicks, setClicks] = useState({
+      left: 0, right: 0
+    })
+    const handleLeftClick = () => setClicks({ ...clicks, left: clicks.left + 1 })
+  
+    const handleRightClick = () => setClicks({ ...clicks, right: clicks.right + 1 })
+    // don't update state directly like this 
+    // Storing all of the state in a single state object is a bad choice for this particular application
+    // result in complex application state
+    /* const handleLeftClick = () => {
+    clicks.left++
+    setClicks(clicks)
+    }*/
+
+    return (
+      <div>
+        {clicks.left}
+        <button onClick={handleLeftClick}>left</button>
+        <button onClick={handleRightClick}>right</button>
+        {clicks.right}
+      </div>
+    )
+  }
 export default App;
