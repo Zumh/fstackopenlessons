@@ -60,6 +60,7 @@ const App = () => {
     const [clicks, setClicks] = useState({
       left: 0, right: 0
     })
+    // we use object spread for simplifying and maintaining state
     const handleLeftClick = () => setClicks({ ...clicks, left: clicks.left + 1 })
   
     const handleRightClick = () => setClicks({ ...clicks, right: clicks.right + 1 })
