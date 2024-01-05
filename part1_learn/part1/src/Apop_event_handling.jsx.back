@@ -1,0 +1,37 @@
+
+// file imports the useState function
+import { useState } from "react";
+
+  
+const App = () => {
+    const [ counter, setCounter ] = useState(0)
+  
+  
+    const handleClick = () => {
+      console.log('clicked')
+    }
+  
+    return (
+      <div>
+        <div>{counter}</div>
+        <div>
+        <button onClick={handleClick}>
+          plus
+        </button>
+        </div>
+        <div>
+        <button onClick={() => setCounter(counter + 1)}>
+          using set counter
+        </button>
+        </div>
+        <div>
+        <button onClick={() => setCounter(0)}>
+          Zero
+        </button>
+          </div>
+      </div>
+    )
+  }
+
+export default App; 
+

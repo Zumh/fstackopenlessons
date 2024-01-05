@@ -1,0 +1,21 @@
+
+import ReactDOM from 'react-dom/client'
+import App from './App'
+let counter = 1
+
+// this is rendering the whole root multipole times to increment the counter
+const referesh = () => {
+    counter += 1
+    ReactDOM.createRoot(document.getElementById('root')).render(<App counter={counter}/>)
+}
+
+/*
+referesh()
+referesh()
+referesh()
+*/
+
+// here we can re-rendering every second by using setInterval
+// not a good practice for re-rendering
+//setInterval(() => {referesh()}, 1000)
+
