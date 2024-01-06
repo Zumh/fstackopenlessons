@@ -27,6 +27,7 @@ const History = (props) => {
     const [left, setLeft] = useState(0)
     const [right, setRight] = useState(0)
     const [allClicks, setAll] = useState([])
+    debugger
      // state change asynchronously which mean left state is not update immediately.
     // we end up with old value + new value which is wrong total that we render
     const handleLeftClick = () => {
